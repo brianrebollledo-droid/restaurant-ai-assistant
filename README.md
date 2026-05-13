@@ -11,10 +11,12 @@ A comprehensive AI automation solution designed for the food and beverage indust
 Below are two high-speed demos showcasing the platform's core functionalities:
 
 1. **User Interface & NLP:** A look at how the AI handles menu inquiries, identifies customer intent, and processes orders through natural conversation.
-   *(Insert Video 1 Here)*
+  <img width="506" height="962" alt="PantallazoBotpress" src="https://github.com/user-attachments/assets/2e998016-cab8-4b6f-a6b2-2f0216d23e15" />
+
 
 2. **Backend & Data Pipeline:** A technical demonstration of the real-time synchronization between the Chatbot, Webhooks (Make.com), and the delivery database (Google Sheets).
-   *(Insert Video 2 Here)*
+ <img width="482" height="908" alt="image" src="https://github.com/user-attachments/assets/ad4f3c2c-3cc0-4ae9-b88e-99dc7e363374" />
+
 
 ---
 
