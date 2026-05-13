@@ -1,0 +1,555 @@
+{
+    "name": "WebhooksRecepcionPedidos (copy)",
+    "flow": [
+        {
+            "id": 1,
+            "module": "gateway:CustomWebHook",
+            "version": 1,
+            "parameters": {
+                "hook": 2299253,
+                "maxResults": 1
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": -321,
+                    "y": -5
+                },
+                "restore": {
+                    "parameters": {
+                        "hook": {
+                            "data": {
+                                "editable": "true"
+                            },
+                            "label": "webhook_llegada_pedido"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "hook",
+                        "type": "hook:gateway-webhook",
+                        "label": "Webhook",
+                        "required": true
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of results"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "google-sheets:addRow",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 8394052
+            },
+            "mapper": {
+                "from": "drive",
+                "mode": "select",
+                "values": {
+                    "Fecha": "{{1.fecha}}",
+                    "Total": "{{1.total}}",
+                    "Estado": "{{1.estado}}",
+                    "Nombre": "{{1.nombre.first}} {{1.nombre.last}}",
+                    "Pedido": "{{1.pedido}}",
+                    "Telefono": "{{1.telefono}}",
+                    "Direccion": "{{1.direccion.street}} {{1.direccion.number}}",
+                    "Pedido_Id": "{{1.orderId}}",
+                    "Comprobante": "{{1.comprobante}}",
+                    "Converssation_Id": "{{1.conversationId}}"
+                },
+                "sheetId": "Pedidos",
+                "spreadsheetId": "/1t7HJnjXRVt9jauRr55Fygxrtg38LyR1Bte24Hrequ70",
+                "includesHeaders": true,
+                "insertDataOption": "INSERT_ROWS",
+                "useColumnHeaders": true,
+                "valueInputOption": "USER_ENTERED",
+                "insertUnformatted": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": -21,
+                    "y": -5
+                },
+                "restore": {
+                    "expect": {
+                        "from": {
+                            "label": "My Drive"
+                        },
+                        "mode": {
+                            "label": "Search by path"
+                        },
+                        "sheetId": {
+                            "label": "Pedidos"
+                        },
+                        "spreadsheetId": {
+                            "path": [
+                                "GestionDomicilios_Template"
+                            ]
+                        },
+                        "includesHeaders": {
+                            "label": "Yes"
+                        },
+                        "insertDataOption": {
+                            "mode": "chose",
+                            "label": "Insert rows"
+                        },
+                        "useColumnHeaders": {
+                            "label": "Yes",
+                            "nested": [
+                                {
+                                    "name": "values",
+                                    "spec": [
+                                        {
+                                            "name": "Pedido_Id",
+                                            "type": "text",
+                                            "label": "Pedido_Id (A)"
+                                        },
+                                        {
+                                            "name": "Nombre",
+                                            "type": "text",
+                                            "label": "Nombre (B)"
+                                        },
+                                        {
+                                            "name": "Telefono",
+                                            "type": "text",
+                                            "label": "Telefono (C)"
+                                        },
+                                        {
+                                            "name": "Direccion",
+                                            "type": "text",
+                                            "label": "Direccion (D)"
+                                        },
+                                        {
+                                            "name": "Pedido",
+                                            "type": "text",
+                                            "label": "Pedido (E)"
+                                        },
+                                        {
+                                            "name": "Comprobante",
+                                            "type": "text",
+                                            "label": "Comprobante (F)"
+                                        },
+                                        {
+                                            "name": "Converssation_Id",
+                                            "type": "text",
+                                            "label": "Converssation_Id (G)"
+                                        },
+                                        {
+                                            "name": "Total",
+                                            "type": "text",
+                                            "label": "Total (H)"
+                                        },
+                                        {
+                                            "name": "Estado",
+                                            "type": "text",
+                                            "label": "Estado (I)"
+                                        },
+                                        {
+                                            "name": "Fecha",
+                                            "type": "text",
+                                            "label": "Fecha (J)"
+                                        },
+                                        {
+                                            "name": "undefined",
+                                            "type": "text",
+                                            "label": "(K)"
+                                        },
+                                        {
+                                            "name": "undefined",
+                                            "type": "text",
+                                            "label": "(L)"
+                                        },
+                                        {
+                                            "name": "undefined",
+                                            "type": "text",
+                                            "label": "(M)"
+                                        },
+                                        {
+                                            "name": "undefined",
+                                            "type": "text",
+                                            "label": "(N)"
+                                        },
+                                        {
+                                            "name": "undefined",
+                                            "type": "text",
+                                            "label": "(O)"
+                                        },
+                                        {
+                                            "name": "undefined",
+                                            "type": "text",
+                                            "label": "(P)"
+                                        },
+                                        {
+                                            "name": "undefined",
+                                            "type": "text",
+                                            "label": "(Q)"
+                                        },
+                                        {
+                                            "name": "undefined",
+                                            "type": "text",
+                                            "label": "(R)"
+                                        },
+                                        {
+                                            "name": "undefined",
+                                            "type": "text",
+                                            "label": "(S)"
+                                        },
+                                        {
+                                            "name": "undefined",
+                                            "type": "text",
+                                            "label": "(T)"
+                                        },
+                                        {
+                                            "name": "undefined",
+                                            "type": "text",
+                                            "label": "(U)"
+                                        },
+                                        {
+                                            "name": "undefined",
+                                            "type": "text",
+                                            "label": "(V)"
+                                        },
+                                        {
+                                            "name": "undefined",
+                                            "type": "text",
+                                            "label": "(W)"
+                                        },
+                                        {
+                                            "name": "undefined",
+                                            "type": "text",
+                                            "label": "(X)"
+                                        },
+                                        {
+                                            "name": "undefined",
+                                            "type": "text",
+                                            "label": "(Y)"
+                                        },
+                                        {
+                                            "name": "undefined",
+                                            "type": "text",
+                                            "label": "(Z)"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Values in columns",
+                                    "metadata": [
+                                        [
+                                            [
+                                                "Pedido_Id",
+                                                "Nombre",
+                                                "Telefono",
+                                                "Direccion",
+                                                "Pedido",
+                                                "Comprobante",
+                                                "Converssation_Id",
+                                                "Total",
+                                                "Estado",
+                                                "Fecha"
+                                            ]
+                                        ]
+                                    ]
+                                }
+                            ]
+                        },
+                        "valueInputOption": {
+                            "mode": "chose",
+                            "label": "User entered"
+                        },
+                        "insertUnformatted": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google"
+                            },
+                            "label": "My Google connection (brian.rebollledo@gmail.com)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "mode",
+                        "type": "select",
+                        "label": "Search Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "select",
+                                "fromAll",
+                                "map"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "insertUnformatted",
+                        "type": "boolean",
+                        "label": "Unformatted",
+                        "required": true
+                    },
+                    {
+                        "name": "valueInputOption",
+                        "type": "select",
+                        "label": "Value input option",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "USER_ENTERED",
+                                "RAW"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "insertDataOption",
+                        "type": "select",
+                        "label": "Insert data option",
+                        "validate": {
+                            "enum": [
+                                "INSERT_ROWS",
+                                "OVERWRITE"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "type": "select",
+                        "label": "Drive",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "drive",
+                                "share",
+                                "team"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spreadsheetId",
+                        "type": "file",
+                        "label": "Spreadsheet Name",
+                        "required": true
+                    },
+                    {
+                        "name": "sheetId",
+                        "type": "select",
+                        "label": "Sheet Name",
+                        "required": true
+                    },
+                    {
+                        "name": "includesHeaders",
+                        "type": "select",
+                        "label": "Table contains headers",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                true,
+                                false
+                            ]
+                        }
+                    },
+                    {
+                        "name": "useColumnHeaders",
+                        "type": "select",
+                        "label": "Use column headers as IDs of the columns",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                true,
+                                false
+                            ]
+                        }
+                    },
+                    {
+                        "name": "values",
+                        "spec": [
+                            {
+                                "name": "Pedido_Id",
+                                "type": "text",
+                                "label": "Pedido_Id (A)"
+                            },
+                            {
+                                "name": "Nombre",
+                                "type": "text",
+                                "label": "Nombre (B)"
+                            },
+                            {
+                                "name": "Telefono",
+                                "type": "text",
+                                "label": "Telefono (C)"
+                            },
+                            {
+                                "name": "Direccion",
+                                "type": "text",
+                                "label": "Direccion (D)"
+                            },
+                            {
+                                "name": "Pedido",
+                                "type": "text",
+                                "label": "Pedido (E)"
+                            },
+                            {
+                                "name": "Comprobante",
+                                "type": "text",
+                                "label": "Comprobante (F)"
+                            },
+                            {
+                                "name": "Converssation_Id",
+                                "type": "text",
+                                "label": "Converssation_Id (G)"
+                            },
+                            {
+                                "name": "Total",
+                                "type": "text",
+                                "label": "Total (H)"
+                            },
+                            {
+                                "name": "Estado",
+                                "type": "text",
+                                "label": "Estado (I)"
+                            },
+                            {
+                                "name": "Fecha",
+                                "type": "text",
+                                "label": "Fecha (J)"
+                            },
+                            {
+                                "name": "undefined",
+                                "type": "text",
+                                "label": "(K)"
+                            },
+                            {
+                                "name": "undefined",
+                                "type": "text",
+                                "label": "(L)"
+                            },
+                            {
+                                "name": "undefined",
+                                "type": "text",
+                                "label": "(M)"
+                            },
+                            {
+                                "name": "undefined",
+                                "type": "text",
+                                "label": "(N)"
+                            },
+                            {
+                                "name": "undefined",
+                                "type": "text",
+                                "label": "(O)"
+                            },
+                            {
+                                "name": "undefined",
+                                "type": "text",
+                                "label": "(P)"
+                            },
+                            {
+                                "name": "undefined",
+                                "type": "text",
+                                "label": "(Q)"
+                            },
+                            {
+                                "name": "undefined",
+                                "type": "text",
+                                "label": "(R)"
+                            },
+                            {
+                                "name": "undefined",
+                                "type": "text",
+                                "label": "(S)"
+                            },
+                            {
+                                "name": "undefined",
+                                "type": "text",
+                                "label": "(T)"
+                            },
+                            {
+                                "name": "undefined",
+                                "type": "text",
+                                "label": "(U)"
+                            },
+                            {
+                                "name": "undefined",
+                                "type": "text",
+                                "label": "(V)"
+                            },
+                            {
+                                "name": "undefined",
+                                "type": "text",
+                                "label": "(W)"
+                            },
+                            {
+                                "name": "undefined",
+                                "type": "text",
+                                "label": "(X)"
+                            },
+                            {
+                                "name": "undefined",
+                                "type": "text",
+                                "label": "(Y)"
+                            },
+                            {
+                                "name": "undefined",
+                                "type": "text",
+                                "label": "(Z)"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Values in columns",
+                        "metadata": [
+                            [
+                                [
+                                    "Pedido_Id",
+                                    "Nombre",
+                                    "Telefono",
+                                    "Direccion",
+                                    "Pedido",
+                                    "Comprobante",
+                                    "Converssation_Id",
+                                    "Total",
+                                    "Estado",
+                                    "Fecha"
+                                ]
+                            ]
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "us2.make.com",
+        "notes": []
+    }
+}
